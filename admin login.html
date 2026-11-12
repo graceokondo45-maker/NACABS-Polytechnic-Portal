@@ -1,0 +1,50 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login | NACABS Polytechnic</title>
+    <link rel="stylesheet" href="Nacabs project.css">
+</head>
+<body>
+
+    <header>
+        <img src="./nacabs-logo.png"
+     alt="NACABS Polytechnic Logo"
+     class="school-logo">
+        <h1>NACABS POLYTECHNIC</h1>
+        <p>Administrator Login</p>
+    </header>
+
+    <main class="signup-container">
+        <h2>Admin Login</h2>
+        <p class="form-description">
+            Sign in to manage student course registrations.
+        </p>
+
+        <form id="adminLoginForm">
+            <label for="adminUsername">Username</label>
+            <input type="text" id="adminUsername"
+                placeholder="Enter admin username" required>
+
+            <label for="adminPassword">Password</label>
+            <input type="password" id="adminPassword"
+                placeholder="Enter admin password" required>
+
+            <button type="submit" class="register-btn">
+                Login as Admin
+            </button>
+
+            <p id="adminMessage"></p>
+        </form>
+
+        <p class="login-text">
+            <a href="login.html">Back to Student Login</a>
+        </p>
+    </main>
+
+    <script src="admin login.js"></script>
+    <script src="password-toggle.js"></script>
+</body>
+</html>

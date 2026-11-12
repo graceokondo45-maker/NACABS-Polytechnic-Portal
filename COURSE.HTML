@@ -1,0 +1,52 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Registration | NACABS Polytechnic</title>
+    <link rel="stylesheet" href="Nacabs project.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>NACABS POLYTECHNIC</h1>
+        <p>Student Course Registration</p>
+    </header>
+
+    <main class="signup-container">
+
+        <h2>Register Your Courses</h2>
+
+        <p class="form-description">
+            Select the courses you want to register.
+        </p>
+
+        <form id="courseForm">
+
+            <div id="studentCourseList">
+                <!-- Courses will appear here automatically -->
+            </div>
+
+            <h3>Total Credit Units: <span id="totalUnits">0</span></h3>
+
+            <button type="submit" class="register-btn">
+                Submit Course Registration
+            </button>
+
+            <p id="courseMessage"></p>
+
+        </form>
+
+        <p class="login-text">
+            <a href="dashboard.html">Back to Dashboard</a>
+        </p>
+
+    </main>
+
+    <script src="course.js"></script>
+    <script src="password-toggle.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,410 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>STUDENT DASHBOARD | NACABS Polytechnic</title>
+
+    <link rel="stylesheet" href="Nacabs project.css">
+</head>
+
+<body class="dashboard-page">
+
+    <div class="dashboard-layout">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+
+           <img src="./nacabs-logo.png.png"
+     alt="NACABS Polytechnic Logo"
+     class="school-logo">
+            <h2>NACABS</h2>
+            <p class="school-label">POLYTECHNIC AKWANGA KABAYI STUDY CENTER</p>
+
+            <nav>
+                <a href="#overview" class="nav-link active">Dashboard</a>
+                <a href="#profile" class="nav-link">My Profile</a>
+                <a href="#myRegisteredCourses" class="nav-link">My Registered Courses</a>
+                <a href="#results" class="nav-link">Check Results</a>
+                <a href="#fees" class="nav-link">School Fees</a>
+                <a href="#paymentHistory" class="nav-link">Payment History</a>
+                <a href="#courses" class="nav-link">Course Registration</a>
+                <a href="#changePassword" class="nav-link">Change Password</a>
+            </nav>
+
+            <a href="#" id="logoutButton" class="logout-link">Logout</a>
+
+        </aside>
+
+        <!-- MAIN DASHBOARD -->
+        <main class="dashboard-main" id="overview">
+
+            <!-- TOP HEADER -->
+            <div class="dashboard-top">
+
+                <div>
+                    <p class="eyebrow">STUDENT PORTAL</p>
+                    <h1>STUDENT DASHBOARD</h1>
+                    <p>Welcome back! Here is your academic overview.</p>
+                </div>
+
+                <div class="student-badge">
+                    <span class="avatar" id="studentInitial">S</span>
+                    <span id="studentName">Student</span>
+                </div>
+
+            </div>
+
+            <!-- SUMMARY CARDS -->
+            <section class="summary-grid">
+
+                <article class="summary-card">
+                    <p>Academic Level</p>
+                    <h2 id="studentLevel">Not available</h2>
+                    <span>Student academic level</span>
+                </article>
+
+                <article class="summary-card">
+                    <p>Registered Courses</p>
+                    <h2 id="registeredCourseCount">0</h2>
+                    <span>Courses for this semester</span>
+                </article>
+
+                <article class="summary-card">
+                    <p>Result Status</p>
+                    <h2 id="studentResultStatus">Pending</h2>
+                    <span id="studentResultStatusText">Awaiting uploaded results</span>
+                </article>
+
+                <article class="summary-card">
+                    <p>School Fees</p>
+                    <h2>Unverified</h2>
+                    <span>Payment status unavailable</span>
+                </article>
+
+            </section>
+
+            <!-- STUDENT PROFILE -->
+            <section class="dashboard-panel" id="profile">
+
+                <h2>My Profile</h2>
+
+                <!-- PASSPORT PHOTOGRAPH -->
+                <div class="passport-section">
+
+                    <img
+                        id="studentPassport"
+                        src=""
+                        alt="Student Passport Photograph"
+                        style="width:150px; height:150px; object-fit:cover; border-radius:50%; border:3px solid #174ea6; display:none;">
+
+                    <div
+                        id="passportPlaceholder"
+                        style="width:150px; height:150px; border-radius:50%; background:#eef4ff; border:3px solid #174ea6; display:flex; align-items:center; justify-content:center; font-size:45px;">
+                        👤
+                    </div>
+
+                    <div style="margin-top:15px;">
+
+                        <label for="passportUpload">
+                            Upload Passport Photograph
+                        </label>
+
+                        <input
+                            type="file"
+                            id="passportUpload"
+                            accept="image/jpeg, image/png, image/webp">
+
+                        <p id="passportMessage" class="dashboard-message">
+                            Upload a clear passport photograph.
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <!-- STUDENT INFORMATION -->
+                <div class="profile-grid">
+
+                    <p><strong>Full Name:</strong>
+                        <span id="profileName">Loading...</span>
+                    </p>
+
+                    <p><strong>Matric Number:</strong>
+                        <span id="profileMatric">Loading...</span>
+                    </p>
+
+                    <p><strong>Email:</strong>
+                        <span id="profileEmail">Loading...</span>
+                    </p>
+
+                    <p><strong>Department:</strong>
+                        <span id="profileDepartment">Loading...</span>
+                    </p>
+
+                    <p><strong>Course:</strong>
+                        <span id="profileCourse">Loading...</span>
+                    </p>
+
+                    <p><strong>Level:</strong>
+                        <span id="profileLevel">Loading...</span>
+                    </p>
+
+                    <p><strong>Semester:</strong>
+                        <span id="profileSemester">Loading...</span>
+                    </p>
+
+                </div>
+
+                <!-- EDIT STUDENT PROFILE -->
+                <h3>Edit My Profile</h3>
+
+                <p>You can update your personal information below.</p>
+
+                <form id="editProfileForm">
+
+                    <div class="form-group">
+                        <label for="editFullName">Full Name</label>
+                        <input type="text" id="editFullName" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="editEmail">Email Address</label>
+                        <input type="email" id="editEmail" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="editDepartment">Department</label>
+                        <input type="text" id="editDepartment" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="editCourse">Course of Study</label>
+                        <input type="text" id="editCourse" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="editLevel">Academic Level</label>
+                        <input type="text" id="editLevel" required>
+                    </div>
+
+                    <button type="submit" class="dashboard-btn">
+                        Update Profile
+                    </button>
+
+                    <p id="editProfileMessage" class="dashboard-message"></p>
+
+                </form>
+
+            </section>
+            <!-- END STUDENT PROFILE -->
+
+            <!-- REGISTERED COURSES -->
+            <section class="dashboard-panel" id="myRegisteredCourses">
+
+                <h2>My Registered Courses</h2>
+
+                <p>These are the courses you have successfully registered.</p>
+
+                <div id="registeredCoursesList">
+                    <p>No courses registered yet.</p>
+                </div>
+
+            </section>
+
+            <!-- CHECK RESULTS -->
+            <section class="dashboard-panel" id="results">
+
+                <div class="results-heading">
+
+                    <div>
+                        <h2>Academic Results</h2>
+                        <p>View your semester examination results.</p>
+                    </div>
+
+                    <div class="result-actions">
+
+                        <button class="dashboard-btn" id="resultButton" type="button">
+                            View Results
+                        </button>
+
+                        <button class="dashboard-btn print-result-btn"
+        id="printResultButton"
+        type="button">
+    Print Full Dashboard
+</button>
+
+                    </div>
+
+                </div>
+
+                <div id="printableResult">
+
+                    <div class="print-school-heading">
+                        <h2>NACABS POLYTECHNIC, AKWANGA</h2>
+                        <p>STUDENT SEMESTER RESULT SLIP</p>
+                    </div>
+
+                    <div class="result-information">
+
+                        <div>
+                            <span>Student Name</span>
+                            <strong id="resultStudentName">Loading...</strong>
+                        </div>
+
+                        <div>
+                            <span>Matric Number</span>
+                            <strong id="resultStudentMatric">Loading...</strong>
+                        </div>
+
+                        <div>
+                            <span>Academic Session</span>
+                            <strong id="resultAcademicSession">Not selected</strong>
+                        </div>
+
+                        <div>
+                            <span>Semester</span>
+                            <strong id="resultAcademicSemester">Not selected</strong>
+                        </div>
+
+                    </div>
+
+                    <div id="studentResultsList" class="student-results-list">
+                        <p>Your results will appear here when they are uploaded by the administrator.</p>
+                    </div>
+
+                </div>
+
+                <p id="resultMessage" class="dashboard-message"></p>
+
+            </section>
+
+            <!-- SCHOOL FEES -->
+            <section class="dashboard-panel" id="fees">
+
+                <h2>School Fees</h2>
+
+                <p>Check your fees and payment status.</p>
+
+                <button class="dashboard-btn" id="feesButton" type="button">
+                    View Fee Status
+                </button>
+
+                <p id="feesMessage" class="dashboard-message"></p>
+
+            </section>
+
+            <!-- STUDENT PAYMENT HISTORY -->
+            <section class="dashboard-panel" id="paymentHistory">
+
+                <h2>My Payment History</h2>
+
+                <p>
+                    View the school fee payments you have submitted
+                    and their verification status.
+                </p>
+
+                <button
+                    class="dashboard-btn"
+                    id="paymentHistoryButton"
+                    type="button">
+                    View Payment History
+                </button>
+
+                <p id="paymentHistoryMessage" class="dashboard-message">
+                    Click the button above to view your payment records.
+                </p>
+
+                <div id="studentPaymentHistory">
+
+                    <p>Your payment records will appear here.</p>
+
+                </div>
+
+            </section>
+
+            <!-- COURSE REGISTRATION -->
+            <section class="dashboard-panel" id="courses">
+
+                <h2>Course Registration</h2>
+
+                <p>Access course registration for your semester.</p>
+
+                <button class="dashboard-btn" id="courseButton" type="button">
+                    Open Course Registration
+                </button>
+
+                <p id="courseMessage" class="dashboard-message"></p>
+
+            </section>
+
+            <!-- CHANGE PASSWORD -->
+            <section class="dashboard-panel" id="changePassword">
+
+                <h2>Change Password</h2>
+
+                <p>Update your account password to keep your student account secure.</p>
+
+                <form id="changePasswordForm">
+
+                    <div class="form-group">
+                        <label for="currentPassword">Current Password</label>
+
+                        <input
+                            type="password"
+                            id="currentPassword"
+                            placeholder="Enter your current password"
+                            required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="newPassword">New Password</label>
+
+                        <input
+                            type="password"
+                            id="newPassword"
+                            placeholder="Enter your new password"
+                            required
+                            minlength="6">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="confirmPassword">Confirm New Password</label>
+
+                        <input
+                            type="password"
+                            id="confirmPassword"
+                            placeholder="Confirm your new password"
+                            required
+                            minlength="6">
+                    </div>
+
+                    <button class="dashboard-btn" type="submit">
+                        Change Password
+                    </button>
+
+                    <p id="passwordMessage" class="dashboard-message"></p>
+
+                </form>
+
+            </section>
+
+            <!-- FOOTER -->
+            <footer class="dashboard-footer">
+                &copy; 2026 NACABS Polytechnic, Akwanga
+            </footer>
+
+        </main>
+
+    </div>
+
+    <!-- DASHBOARD JAVASCRIPT -->
+    <script src="dashboard.js"></script>
+
+    <!-- UNIVERSAL PASSWORD EYE -->
+    <script src="password-toggle.js"></script>
+
+</body>
+</html>

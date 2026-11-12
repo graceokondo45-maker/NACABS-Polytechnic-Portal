@@ -1,0 +1,123 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Student Registration | NACABS Polytechnic</title>
+
+    <link rel="stylesheet" href="Nacabs project.css">
+</head>
+
+<body>
+
+    <header>
+        <img src="./nacabs-logo.png"
+     alt="NACABS Polytechnic Logo"
+     class="school-logo">
+        <h1>NACABS POLYTECHNIC</h1>
+        <p>Student Account Registration</p>
+    </header>
+
+    <main class="signup-container">
+
+        <h2>Create Your Student Account</h2>
+        <p class="form-description">
+            Fill in your details to create your portal account.
+        </p>
+
+        <form id="signupForm">
+
+            <div class="form-group">
+                <label for="fullname">Full Name</label>
+                <input type="text" id="fullname"
+                    placeholder="Enter your full name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Student Email</label>
+                <input type="email" id="email"
+                    placeholder="Enter your email address" required>
+            </div>
+
+            <div class="form-group">
+                <label for="matric">Matriculation Number</label>
+                <input type="text" id="matric"
+                    placeholder="Enter your matric number" required>
+            </div>
+
+            <div class="form-group">
+                <label for="department">Department</label>
+                <select id="department" required>
+                    <option value="">Select Department</option>
+                    <option>Computer Science</option>
+                    <option>Accountancy</option>
+                    <option>Business Administration</option>
+                    <option>Statistics</option>
+                    <option>Computer Engineering</option>
+                    <option>Electrical/Electronic Engineering</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="course">Course of Study</label>
+                <select id="course" required>
+                    <option value="">Select Course</option>
+                    <option>Computer Science</option>
+                    <option>Accountancy</option>
+                    <option>Business Administration and Management</option>
+                    <option>Statistics</option>
+                    <option>Computer Engineering Technology</option>
+                    <option>Electrical/Electronic Engineering Technology</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="level">Academic Level</label>
+                <select id="level" required>
+                    <option value="">Select Level</option>
+                    <option>ND I</option>
+                    <option>ND II</option>
+                    <option>HND I</option>
+                    <option>HND II</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password"
+                    placeholder="Create a password" minlength="8" required>
+                    
+            </div>
+
+            <div class="form-group">
+                <label for="confirmPassword">Confirm Password</label>
+                <input type="password" id="confirmPassword"
+                    placeholder="Confirm your password" required>
+            </div>
+
+            <button type="submit" class="register-btn">
+                Create Account
+            </button>
+
+            <p id="message"></p>
+
+            <p class="login-text">
+                Already have an account?
+                <a href="login.html">Login here</a>
+            </p>
+
+        </form>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 NACABS Polytechnic. All Rights Reserved.</p>
+    </footer>
+
+    <script src="signin.js"></script>
+    <script src="password-toggle.js"></script>
+
+</body>
+</html>

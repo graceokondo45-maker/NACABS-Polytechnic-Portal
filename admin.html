@@ -1,0 +1,626 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Dashboard | NACABS POLYTECHNIC AKWANGA KABAYI STUDY CENTER</title>
+
+    <link rel="stylesheet" href="Nacabs project.css">
+</head>
+
+<body class="admin-page">
+
+    <div class="admin-layout">
+
+        <!-- ADMIN SIDEBAR -->
+        <aside class="admin-sidebar">
+
+            <h2>NACABS</h2>
+            <p>POLYTECHNIC AKWANGA</p>
+
+            <nav>
+
+                <a href="#overview" class="admin-nav-link active">
+                    Dashboard
+                </a>
+
+                <a href="#addCourse" class="admin-nav-link">
+                    Add Courses
+                </a>
+
+                <a href="#manageCourses" class="admin-nav-link">
+                    Manage Courses
+                </a>
+
+                <a href="#studentAccounts" class="admin-nav-link">
+                    Manage Students
+                </a>
+
+                <a href="#registrations" class="admin-nav-link">
+                    Student Registrations
+                </a>
+
+                <a href="#manageResults" class="admin-nav-link">
+                    Manage Results
+                </a>
+
+                <a href="#manageFees" class="admin-nav-link">
+                    School Fees
+                </a>
+
+                <a href="#paymentVerification" class="admin-nav-link">
+                    Payment Verification
+                </a>
+
+                <a href="#adminSettings" class="admin-nav-link">
+                    Admin Settings
+                </a>
+
+            </nav>
+
+            <a href="#" id="adminLogout" class="admin-nav-link admin-logout">
+                Logout
+            </a>
+
+        </aside>
+
+
+        <!-- ADMIN MAIN CONTENT -->
+        <main class="admin-main" id="overview">
+
+            <div class="admin-top">
+                <h1>ADMIN DASHBOARD</h1>
+                <p>Welcome to NACABS Polytechnic Administration Portal.</p>
+            </div>
+
+
+            <!-- SUMMARY CARDS -->
+            <section class="admin-summary-grid">
+
+                <div class="admin-card">
+                    <p>Total Students</p>
+                    <h2 id="totalStudents">0</h2>
+                </div>
+
+                <div class="admin-card">
+                    <p>Total Courses</p>
+                    <h2 id="totalCourses">0</h2>
+                </div>
+
+                <div class="admin-card">
+                    <p>Course Registrations</p>
+                    <h2 id="totalRegistrations">0</h2>
+                </div>
+
+            </section>
+
+
+            <!-- ADD COURSE -->
+            <section class="admin-section" id="addCourse">
+
+                <h2>Add New Course</h2>
+
+                <form id="adminCourseForm" class="admin-form">
+
+                    <label>Department</label>
+
+                    <select id="courseDepartment" required>
+                        <option value="">Select Department</option>
+                        <option>Computer Science</option>
+                        <option>Accountancy</option>
+                        <option>Business Administration</option>
+                        <option>Statistics</option>
+                        <option>Computer Engineering</option>
+                        <option>Electrical/Electronic Engineering</option>
+                        <option>Public Administration</option>
+                    </select>
+
+
+                    <label>Level</label>
+
+                    <select id="courseLevel" required>
+                        <option value="">Select Level</option>
+                        <option>ND I</option>
+                        <option>ND II</option>
+                        <option>HND I</option>
+                        <option>HND II</option>
+                    </select>
+
+
+                    <label>Semester</label>
+
+                    <select id="courseSemester" required>
+                        <option value="">Select Semester</option>
+                        <option>First Semester</option>
+                        <option>Second Semester</option>
+                    </select>
+
+
+                    <label>Course Code</label>
+
+                    <input type="text" id="courseCode"
+                        placeholder="Example: CSC 201" required>
+
+
+                    <label>Course Title</label>
+
+                    <input type="text" id="courseTitle"
+                        placeholder="Enter course title" required>
+
+
+                    <label>Credit Units</label>
+
+                    <input type="number" id="creditUnits"
+                        min="1" max="10"
+                        placeholder="Enter credit units" required>
+
+
+                    <button type="submit" class="admin-btn">
+                        Add Course
+                    </button>
+
+                    <p id="adminCourseMessage"></p>
+
+                </form>
+
+            </section>
+
+
+            <!-- MANAGE COURSES -->
+            <section class="admin-section" id="manageCourses">
+
+                <h2>Manage Available Courses</h2>
+
+                <div id="adminCourseList">
+                    <p>No courses added yet.</p>
+                </div>
+
+            </section>
+
+
+            <!-- MANAGE STUDENT ACCOUNTS -->
+            <section class="admin-section" id="studentAccounts">
+
+                <h2>Manage Student Accounts</h2>
+
+                <p>View student profiles and manage their account status.</p>
+
+                <div class="student-search-area">
+
+                    <div class="search-field">
+                        <label for="accountSearch">Search Student</label>
+
+                        <input type="text" id="accountSearch"
+                            placeholder="Enter name or matric number">
+                    </div>
+
+
+                    <div class="search-field">
+                        <label for="accountDepartment">Department</label>
+
+                        <select id="accountDepartment">
+                            <option value="">All Departments</option>
+                            <option>Computer Science</option>
+                            <option>Accountancy</option>
+                            <option>Business Administration</option>
+                            <option>Statistics</option>
+                            <option>Computer Engineering</option>
+                            <option>Electrical/Electronic Engineering</option>
+                        </select>
+                    </div>
+
+
+                    <div class="search-field">
+                        <label for="accountLevel">Academic Level</label>
+
+                        <select id="accountLevel">
+                            <option value="">All Levels</option>
+                            <option>ND I</option>
+                            <option>ND II</option>
+                            <option>HND I</option>
+                            <option>HND II</option>
+                        </select>
+                    </div>
+
+
+                    <button type="button" id="resetAccountFilters"
+                        class="admin-btn">
+                        Reset Filters
+                    </button>
+
+                </div>
+
+                <p id="accountMessage"></p>
+
+                <div id="studentAccountList">
+                    <p>No student accounts found.</p>
+                </div>
+
+            </section>
+
+
+            <!-- STUDENT COURSE REGISTRATIONS -->
+            <section class="admin-section" id="registrations">
+
+                <h2>Student Course Registrations</h2>
+
+                <div class="student-search-area">
+
+                    <div class="search-field">
+                        <label for="studentSearch">Search Student</label>
+
+                        <input type="text" id="studentSearch"
+                            placeholder="Enter student name or matric number">
+                    </div>
+
+
+                    <div class="search-field">
+                        <label for="filterDepartment">Department</label>
+
+                        <select id="filterDepartment">
+                            <option value="">All Departments</option>
+                            <option>Computer Science</option>
+                            <option>Accountancy</option>
+                            <option>Business Administration</option>
+                            <option>Statistics</option>
+                            <option>Computer Engineering</option>
+                            <option>Electrical/Electronic Engineering</option>
+                            <option>Public Administration</option>
+                        </select>
+                    </div>
+
+
+                    <div class="search-field">
+                        <label for="filterLevel">Academic Level</label>
+
+                        <select id="filterLevel">
+                            <option value="">All Levels</option>
+                            <option>ND I</option>
+                            <option>ND II</option>
+                            <option>HND I</option>
+                            <option>HND II</option>
+                        </select>
+                    </div>
+
+
+                    <button type="button" id="resetStudentFilters"
+                        class="admin-btn">
+                        Reset Filters
+                    </button>
+
+                </div>
+
+                <p id="studentSearchMessage"></p>
+
+                <div id="studentRegistrationList">
+                    <p>No student registrations yet.</p>
+                </div>
+
+            </section>
+
+
+            <!-- MANAGE RESULTS -->
+            <section class="admin-section" id="manageResults">
+
+                <h2>Manage Student Results</h2>
+
+                <p>Enter examination scores for registered students.</p>
+
+                <form id="adminResultForm" class="admin-form">
+
+                    <label for="resultStudentMatric">
+                        Student Matriculation Number
+                    </label>
+
+                    <input
+                        type="text"
+                        id="resultStudentMatric"
+                        placeholder="Enter student's matric number"
+                        required>
+
+
+                    <label for="resultCourseTitle">
+                        Select Course Title
+                    </label>
+
+                    <select id="resultCourseTitle" required>
+                        <option value="">Enter matric number first</option>
+                    </select>
+
+
+                    <label for="resultCourseCode">Course Code</label>
+
+                    <input
+                        type="text"
+                        id="resultCourseCode"
+                        placeholder="Course code will appear here"
+                        readonly
+                        required>
+
+
+                    <label for="resultCA">Continuous Assessment (CA)</label>
+
+                    <input
+                        type="number"
+                        id="resultCA"
+                        min="0"
+                        max="30"
+                        placeholder="Enter CA score (0 - 30)"
+                        required>
+
+
+                    <label for="resultExam">Examination Score</label>
+
+                    <input
+                        type="number"
+                        id="resultExam"
+                        min="0"
+                        max="70"
+                        placeholder="Enter exam score (0 - 70)"
+                        required>
+
+
+                    <label for="resultTotal">Total Score</label>
+
+                    <input
+                        type="number"
+                        id="resultTotal"
+                        placeholder="Automatically calculated"
+                        readonly>
+
+
+                    <label for="resultGrade">Grade</label>
+
+                    <input
+                        type="text"
+                        id="resultGrade"
+                        placeholder="Automatically calculated"
+                        readonly>
+
+
+                    <label for="resultRemark">Remark</label>
+
+                    <input
+                        type="text"
+                        id="resultRemark"
+                        placeholder="Automatically calculated"
+                        readonly>
+
+
+                    <label for="resultSemester">Semester</label>
+
+                    <select id="resultSemester" required>
+                        <option value="">Select Semester</option>
+                        <option>First Semester</option>
+                        <option>Second Semester</option>
+                    </select>
+
+
+                    <label for="resultSession">Academic Session</label>
+
+                    <input
+                        type="text"
+                        id="resultSession"
+                        placeholder="Example: 2025/2026"
+                        required>
+
+
+                    <button type="submit" class="admin-btn">
+                        Save Student Result
+                    </button>
+
+                    <p id="resultMessage"></p>
+
+                </form>
+
+
+                <h3>Uploaded Student Results</h3>
+
+                <div id="adminResultList">
+                    <p>No results uploaded yet.</p>
+                </div>
+
+            </section>
+
+
+            <!-- SCHOOL FEES MANAGEMENT -->
+            <section class="admin-section" id="manageFees">
+
+                <h2>School Fees Management</h2>
+
+                <p>Record and manage students' school fee payments.</p>
+
+                <form id="adminFeesForm" class="admin-form">
+
+                    <label for="feeStudentMatric">
+                        Student Matriculation Number
+                    </label>
+
+                    <input
+                        type="text"
+                        id="feeStudentMatric"
+                        placeholder="Enter student's matric number"
+                        required>
+
+
+                    <label for="feeAcademicSession">
+                        Academic Session
+                    </label>
+
+                    <input
+                        type="text"
+                        id="feeAcademicSession"
+                        placeholder="Example: 2026/2027"
+                        required>
+
+
+                    <label for="totalSchoolFees">
+                        Total School Fees (₦)
+                    </label>
+
+                    <input
+                        type="number"
+                        id="totalSchoolFees"
+                        min="0"
+                        placeholder="Enter total school fees"
+                        required>
+
+
+                    <label for="amountPaid">
+                        Amount Paid (₦)
+                    </label>
+
+                    <input
+                        type="number"
+                        id="amountPaid"
+                        min="0"
+                        placeholder="Enter amount paid"
+                        required>
+
+
+                    <button type="submit" class="admin-btn">
+                        Save Fee Payment
+                    </button>
+
+                    <p id="adminFeesMessage"></p>
+
+                </form>
+
+
+                <h3>Student Fee Records</h3>
+
+                <div id="adminFeesList">
+                    <p>No fee records available yet.</p>
+                </div>
+
+            </section>
+
+
+            <!-- PAYMENT VERIFICATION -->
+            <section class="admin-section" id="paymentVerification">
+
+                <h2>Student Payment Verification</h2>
+
+                <p>
+                    View student payment submissions and verify their
+                    bank transfer details.
+                </p>
+
+                <div class="payment-admin-summary">
+
+                    <div class="admin-card">
+                        <p>Total Submitted Payments</p>
+                        <h2 id="totalSubmittedPayments">0</h2>
+                    </div>
+
+                    <div class="admin-card">
+                        <p>Pending Verification</p>
+                        <h2 id="pendingPayments">0</h2>
+                    </div>
+
+                    <div class="admin-card">
+                        <p>Approved Payments</p>
+                        <h2 id="approvedPayments">0</h2>
+                    </div>
+
+                </div>
+
+                <h3>Payment Submissions</h3>
+
+                <div id="adminPaymentList">
+                    <p>Payment submissions will appear here.</p>
+                </div>
+
+            </section>
+
+
+            <!-- ADMIN PROFILE AND SETTINGS -->
+            <section class="admin-section" id="adminSettings">
+
+                <h2>Admin Profile and Settings</h2>
+
+                <div class="admin-profile">
+
+                    <h3>Administrator Information</h3>
+
+                    <p>
+                        <strong>Username:</strong>
+                        <span id="adminProfileUsername">
+                            Administrator
+                        </span>
+                    </p>
+
+                    <p>
+                        <strong>Account Type:</strong>
+                        System Administrator
+                    </p>
+
+                </div>
+
+
+                <h3>Change Admin Password</h3>
+
+                <form id="adminPasswordForm" class="admin-form">
+
+                    <label for="currentAdminPassword">
+                        Current Password
+                    </label>
+
+                    <input
+                        type="password"
+                        id="currentAdminPassword"
+                        placeholder="Enter current password"
+                        required>
+
+
+                    <label for="newAdminPassword">
+                        New Password
+                    </label>
+
+                    <input
+                        type="password"
+                        id="newAdminPassword"
+                        placeholder="Enter new password"
+                        required>
+
+
+                    <label for="confirmAdminPassword">
+                        Confirm New Password
+                    </label>
+
+                    <input
+                        type="password"
+                        id="confirmAdminPassword"
+                        placeholder="Confirm new password"
+                        required>
+
+
+                    <button type="submit" class="admin-btn">
+                        Update Password
+                    </button>
+
+                    <p id="adminPasswordMessage"></p>
+
+                </form>
+
+            </section>
+
+
+            <!-- FOOTER -->
+            <footer class="admin-footer">
+                &copy; 2026 NACABS Polytechnic, Akwanga
+            </footer>
+
+        </main>
+
+    </div>
+
+
+    <!-- JAVASCRIPT FILES -->
+    <script src="admin.js"></script>
+    <script src="password-toggle.js"></script>
+
+</body>
+</html>
